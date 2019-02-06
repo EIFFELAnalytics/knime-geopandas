@@ -105,3 +105,4 @@ venv.bak/
 *.tmp
 recyclebin/
 *.pdf
+io_table.csv
