@@ -1,4 +1,4 @@
-# How to setup KNIME and Python
+# How to set up KNIME and Python
 ## Install KNIME
 Download KNIME [here](https://www.knime.com/downloads/download-knime) and install it. This requires administrative rights.
 
@@ -24,10 +24,10 @@ Create a .bat file which KNIME can use to address Python based on this example:
 ```
 @REM Adapt the directory in the PATH to your system    
 @SET PATH=<path/to/anaconda>;%PATH%  
-@CALL activate <venv> || ECHO Activating <venv> failed  
+@CALL activate py37_knime || ECHO Activating py37_knime failed  
 @python %*
 ```
-Replace `<path/to/anaconda>` with your path to Anaconda. You can find this by running `where python` in an Anaconda Prompt, removing `python.exe` and adding `\Scripts`. For me it was C:\Users\abos\AppData\Local\Continuum\anaconda3\Scripts. And replace `<venv>` (2 times) with the name of the virtual environment you just made. Following this readme it should be `py37_knime`.
+Replace `<path/to/anaconda>` with your path to Anaconda. You can find this by running `where python` in an Anaconda Prompt, removing `python.exe` and adding `\Scripts`. For me it was `C:\Users\abos\AppData\Local\Continuum\anaconda3\Scripts`.
 
 Save the file as `py37_knime.bat` and put it in your home directory.
 
@@ -35,11 +35,13 @@ Save the file as `py37_knime.bat` and put it in your home directory.
 1. Open KNIME.
 1. Install KNIME Python Integration:
     1. Go to File > Install KNIME extensions,
-    1. Search for "python",
+    1. Search for "Python",
     1. Select "KNIME Python Integration",
     1. Follow the wizard until finished and restart KNIME if prompted.
 1. Go to File > Preferences > KNIME > Python.
-1. 
-    
+1. Change the path to Python 3 executable:
+    1. Browse to your home directory,
+    1. Select `py37_knime.bat`.
+1. If all went well, it shows "Python version: 3.7".    
     
     
