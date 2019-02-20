@@ -1,15 +1,13 @@
 # HEADER
-# Includes some defined functions which are required for the KNIME geopandas nodes.
-import geopandas as gpd
+# Includes some functions which are required for the KNIME geopandas nodes.
 import pandas as pd
+import geopandas as gpd
 from shapely import wkt as WKT
 
 # Convert geopandas (with geometry column) to pandas (with wkt column)
-def gdf_to_df(gdf, **kwargs):
+def gdf_to_df(gdf):
     df = pd.DataFrame(gdf, copy=True)
-    df['wkt'] = gdf.geometry.apply(
-        lambda wkt: WKT.dumps(wkt, trim=True, rounding_precision=kwargs.get('rounding_precision', -1))
-    )
+    df['wkt'] = gdf.geometry.apply(lambda wkt: WKT.dumps(wkt, trim=True))
     df.drop(columns='geometry', inplace=True)
     return df
 
