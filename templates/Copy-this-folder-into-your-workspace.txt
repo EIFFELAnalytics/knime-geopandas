@@ -1,1 +1,0 @@
-This entire folder (sourcecode-templates) goes into <path/to/knime-workspace>/.metadata/knime/sourcecode-templates.

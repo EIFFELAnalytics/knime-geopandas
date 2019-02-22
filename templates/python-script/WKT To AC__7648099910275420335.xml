@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="WKT To AC__7648099910275420335.xml">
-<entry key="category" type="xstring" value="scikit learn"/>
-<entry key="title" type="xstring" value="WKT To AC"/>
-<entry key="description" type="xstring" value=""/>
-<entry key="sourcecode" type="xstring" value="# WKT TO AC NODE%%00010def wkt_to_ac(wkt):%%00010    ac = (wkt%%00010          .replace('MULTIPOLYGON (((', '').replace(')))', '').replace(')), ((', '@')%%00010          .replace('POLYGON ((', '').replace('))', '').replace('), (', '@')%%00010          .replace(', ', ':').replace(' ', ',')%%00010         )%%00010    return ac%%00010%%00010# Copy input table and convert wkt to AC into new column%%00010output_table = input_table.copy()%%00010output_table['AC'] = input_table.wkt.apply(wkt_to_ac)"/>
-</config>

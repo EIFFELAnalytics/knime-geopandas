@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="Reduce Precision__6887591092965313934.xml">
-<entry key="category" type="xstring" value="scikit learn"/>
-<entry key="title" type="xstring" value="Reduce Precision"/>
-<entry key="description" type="xstring" value=""/>
-<entry key="sourcecode" type="xstring" value="# PARAMETERS%%00010# Geef het aan decimalen achter de komma aan, in graden (eenheid WGS84).%%00010# In Nederland: 1 m ~ 1e-5 graden.%%00010decimals = 7%%00010%%00010# REDUCE PRECISION%%00010import pandas as pd%%00010import re%%00010%%00010# Convert to plain text, JSON actually%%00010input_json = input_table.to_json()%%00010%%00010# Match all numbers with more than `decimals` numbers behind the dot%%00010# Replace the match with the captured group, thereby removing abundant decimals%%00010output_json = re.sub(r'([0-9]+\.[0-9]{' + str(decimals) + r'})[0-9]+', r'\1', input_json)%%00010output_table = pd.read_json(output_json)"/>
-</config>
