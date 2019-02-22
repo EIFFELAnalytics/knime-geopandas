@@ -14,24 +14,31 @@ Download KNIME [here](https://www.knime.com/downloads/download-knime) and instal
 1. You are now in the `base` virtual environment. See the prompt `(base) C:\>`.
 1. Check your Python version with `python --version`.
 1. Create a new [virtual environment](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) with
-```(base) C:\> conda create -n py37_knime python=3.7 jedi pandas geopandas```
+```(base) C:\> conda create -n py37_knime python=3.7```
     * See this [blog](https://www.knime.com/blog/setting-up-the-knime-python-extension-revisited-for-python-30-and-20) for more information.
-    * It's not necessary to supply the third Python version number. Those are bugfixes and it will always use the latest.
-
-You can activate and deactivate this environment with `activate py37_knime` and `deactivate` respectively. But for this setup, activation is not needed.
-
-Create a .bat file which KNIME can use to address Python based on this example:
+    * It's not necessary to supply the third Python version number. Those are bugfixes and it will always use the latest. So `python=3.7` will install the latest 3.7.* version.
+1. Activate the environment with `conda activate py37_knime`.
+1. Now let's install some packages:
+    * As of the time of writing (KNIME version 3.7.1) KNIME needs an older version of pandas: `conda install pandas=0.23`.
+    * Also install jedi for autocompletion: `conda install jedi`. Use `Ctrl+Space` in the Python editor to autocomplete.
+    * The geo-nodes also require the following:
+        * `conda install geopandas`
+        * `pip install openrouteservice`
+1. Deactivate the environment: `conda deactivate`.
+        
+## Setup KNIME
+### Prepare a script which enables `py37_knime`
+1. Create a .bat file which KNIME can use to address Python based on this example:
 ```
 @REM Adapt the directory in the PATH to your system    
 @SET PATH=<path/to/anaconda>;%PATH%  
-@CALL activate py37_knime || ECHO Activating py37_knime failed  
+@CALL conda activate py37_knime || ECHO Activating py37_knime failed  
 @python %*
 ```
-Replace `<path/to/anaconda>` with your path to Anaconda. You can find this by running `where python` in an Anaconda Prompt, removing `python.exe` and adding `\Scripts`. For me it was `C:\Users\abos\AppData\Local\Continuum\anaconda3\Scripts`.
+1. Replace `<path/to/anaconda>` with your path to Anaconda. You can find this by running `where python` in an Anaconda Prompt, removing `python.exe` and adding `\Scripts`. For me it was `C:\Users\abos\AppData\Local\Continuum\anaconda3\Scripts`.
+1. Save the file as `py37_knime.bat` and put it in your home directory.
 
-Save the file as `py37_knime.bat` and put it in your home directory.
-
-## Setup KNIME
+### KNIME Settings
 1. Open KNIME.
 1. Install KNIME Python Integration:
     1. Go to File > Install KNIME extensions,
@@ -42,6 +49,4 @@ Save the file as `py37_knime.bat` and put it in your home directory.
 1. Change the path to Python 3 executable:
     1. Browse to your home directory,
     1. Select `py37_knime.bat`.
-1. If all went well, it shows "Python version: 3.7".    
-    
-    
+1. If all went well, it shows "Python version: 3.7.*".
