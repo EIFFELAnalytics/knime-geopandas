@@ -1,6 +1,5 @@
 # .gitignore
-.ipynb_checkpoints
-recyclebin/
-*.pdf
-io-table.csv
 __pycache__/
+.ipynb_checkpoints/
+.vscode/
+recyclebin/
