@@ -2,7 +2,7 @@ from py.convert import df_to_gdf, gdf_to_df
 
 
 def centroid(df_with_wkt):
-    """Convert shapes to centroids.
+    """Convert shapes to centroids (Points).
 
     Shapely docs: https://shapely.readthedocs.io/en/stable/manual.html#object.centroid
 

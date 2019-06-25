@@ -31,7 +31,7 @@ def knime_decorator_1_1(func):
     # Use functools.wraps to inherit the docstring from the original function
     @wraps(func)
     def wrapper(input_table, *args, **kwargs):
-        """This docstring should not be seen.
+        """This docstring should actually not be seen by IntelliSense.
 
         Unfortunately this is not the case with the IntelliSense popup window
         in VS Code on Windows 10. However, `func.__doc__` does give the correct
@@ -66,7 +66,7 @@ def knime_decorator_2_1(func):
         # Execute the 2 -> 1 function
         output_gdf = func(input_gdf_1, input_gdf_2, *args, **kwargs)
 
-        # Convert back to dataframe
+        # Convert back to a dataframe
         output_table = gdf_to_df(output_gdf)
         return output_table
 

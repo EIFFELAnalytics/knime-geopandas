@@ -1,15 +1,15 @@
 from py.convert import df_to_gdf, gdf_to_df
 
 
-def simplify(df_with_wkt, decimals):
+def simplify(input_table, decimals):
     """Simplify shapes.
 
-    The simplification algorithm tries to draw a new geometry from as few points
-    as possible while remaining within the tolerance distance of the original
-    geometry.
+    The simplification algorithm tries to draw a new geometry from as few
+    points as possible while remaining within the tolerance distance of the
+    original geometry.
 
     Args:
-        df_with_wkt (DataFrame).
+        input_table (DataFrame).
         decimals (int): Desired precision in amount of decimals.
 
     Shapely docs: https://shapely.readthedocs.io/en/stable/manual.html#object.simplify
@@ -17,7 +17,7 @@ def simplify(df_with_wkt, decimals):
     """
 
     # Convert to geodataframe
-    gdf = df_to_gdf(df_with_wkt)
+    gdf = df_to_gdf(input_table)
 
     # Simplify with fixed tolerance
     tolerance = 10 ** -decimals
