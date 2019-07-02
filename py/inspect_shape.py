@@ -7,6 +7,8 @@ from py.convert import df_to_gdf
 # Don't hide columns
 pd.set_option('display.max_columns', None)
 
+# TODO: Research plotly for KNIME.
+
 
 def inspect_shape(df, **kwargs):
     """Inspect a shape.

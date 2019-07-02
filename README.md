@@ -14,6 +14,7 @@
 * Simplify
 * WKT to AC
 * Centroids
+* Geocode
 * Distance/duration matrix
 * Isochrones
 * Dissolve
